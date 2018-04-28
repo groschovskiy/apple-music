@@ -21,7 +21,7 @@ class MusicLibraryCell: UITableViewCell {
         songCellView.layer.cornerRadius = 15.0
         songCellView.clipsToBounds = true
 
-        songArtwork.layer.cornerRadius = self.frame.height / 2.0
+        songArtwork.layer.cornerRadius = 8.0
         songArtwork.clipsToBounds = true
     }
 
