@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  CustomerProfile.swift
 //  Music
 //
 //  Created by Dmitriy Groschovskiy on 4/28/18.
@@ -8,18 +8,19 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class CustomerProfile: UIViewController {
+
+    @IBOutlet weak var fullName: UILabel!
+    @IBOutlet weak var profilePhoto: UIImageView!
+    @IBOutlet weak var listenedMinutes: UILabel!
+    @IBOutlet weak var totalSubscibers: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
-
 }
-

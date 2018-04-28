@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  RadioStation.swift
 //  Music
 //
 //  Created by Dmitriy Groschovskiy on 4/28/18.
@@ -8,18 +8,14 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class RadioStation: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
-
 }
-
