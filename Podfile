@@ -21,6 +21,7 @@ target 'Music' do
   
   # Network Management
   pod 'Alamofire'
+  pod 'AlamofireImage'
   
   # Image Tools
   pod 'Nuke'
