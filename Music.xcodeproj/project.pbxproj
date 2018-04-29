@@ -40,6 +40,8 @@
 		6FDE09212094AC3500364469 /* AppIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FDE09202094AC3500364469 /* AppIcon.xcassets */; };
 		6FDE09252094FA9600364469 /* RadioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDE09232094FA9600364469 /* RadioPlayer.swift */; };
 		6FDE09262094FA9600364469 /* RadioPlayer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FDE09242094FA9600364469 /* RadioPlayer.xib */; };
+		6FDE092920952E4700364469 /* AppUIElements.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FDE092820952E4700364469 /* AppUIElements.xcassets */; };
+		6FDE092B20952E8E00364469 /* SamsungOne-200.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6FDE092A20952E8900364469 /* SamsungOne-200.ttf */; };
 		A196E73E68B45DEAB12E6F48 /* Pods_Music.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58960EC5F4BB325E7351F7CF /* Pods_Music.framework */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +105,8 @@
 		6FDE09202094AC3500364469 /* AppIcon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppIcon.xcassets; sourceTree = "<group>"; };
 		6FDE09232094FA9600364469 /* RadioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioPlayer.swift; sourceTree = "<group>"; };
 		6FDE09242094FA9600364469 /* RadioPlayer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RadioPlayer.xib; sourceTree = "<group>"; };
+		6FDE092820952E4700364469 /* AppUIElements.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppUIElements.xcassets; sourceTree = "<group>"; };
+		6FDE092A20952E8900364469 /* SamsungOne-200.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SamsungOne-200.ttf"; sourceTree = "<group>"; };
 		796216EBF7AE8F5F1402A65B /* Pods-Music.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Music.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Music/Pods-Music.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -220,6 +224,8 @@
 				6F0581B92093F63900FA6F20 /* AppWallpaper.xcassets */,
 				6F0581BB2093F65300FA6F20 /* AppLogo.xcassets */,
 				6FDE09202094AC3500364469 /* AppIcon.xcassets */,
+				6FDE092820952E4700364469 /* AppUIElements.xcassets */,
+				6FDE092A20952E8900364469 /* SamsungOne-200.ttf */,
 			);
 			path = "Graphic Concepts";
 			sourceTree = "<group>";
@@ -285,8 +291,7 @@
 		6FDE09152094999B00364469 /* Music Streaming Player */ = {
 			isa = PBXGroup;
 			children = (
-				6FDE091620949A1C00364469 /* MusicPlayer.swift */,
-				6FDE091720949A1C00364469 /* MusicPlayer.xib */,
+				6FDE092720952DA600364469 /* Online Music Streaming */,
 				6FDE09222094FA7300364469 /* Online Radio Station */,
 			);
 			path = "Music Streaming Player";
@@ -307,6 +312,15 @@
 				6FDE09242094FA9600364469 /* RadioPlayer.xib */,
 			);
 			path = "Online Radio Station";
+			sourceTree = "<group>";
+		};
+		6FDE092720952DA600364469 /* Online Music Streaming */ = {
+			isa = PBXGroup;
+			children = (
+				6FDE091620949A1C00364469 /* MusicPlayer.swift */,
+				6FDE091720949A1C00364469 /* MusicPlayer.xib */,
+			);
+			path = "Online Music Streaming";
 			sourceTree = "<group>";
 		};
 		82D1AACD8901CBA1ADCBB75C /* Frameworks */ = {
@@ -435,6 +449,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FDE092920952E4700364469 /* AppUIElements.xcassets in Resources */,
 				6F0581942093ED9300FA6F20 /* LaunchScreen.storyboard in Resources */,
 				6F0581DD209408CA00FA6F20 /* PARegister.xib in Resources */,
 				6F0581912093ED9300FA6F20 /* Assets.xcassets in Resources */,
@@ -447,6 +462,7 @@
 				6F05818F2093ED9200FA6F20 /* Main.storyboard in Resources */,
 				6F0581E620940E7A00FA6F20 /* GoogleService-Info.plist in Resources */,
 				6F0581D9209408BC00FA6F20 /* PALogin.xib in Resources */,
+				6FDE092B20952E8E00364469 /* SamsungOne-200.ttf in Resources */,
 				6FDE091920949A1C00364469 /* MusicPlayer.xib in Resources */,
 				6F0581BC2093F65300FA6F20 /* AppLogo.xcassets in Resources */,
 			);

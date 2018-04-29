@@ -13,16 +13,27 @@ import Alamofire
 class MusicLibrary: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var songLibraryTable: UITableView!
+    @IBOutlet weak var authNotificationView: UIView!
     var arrayWithSongs: [LibraryModel] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        getMyLibrary()
+        requestAuthStatus()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+
+    func requestAuthStatus() {
+        Auth.auth().addStateDidChangeListener { auth, user in
+            if user != nil {
+                self.getMyLibrary()
+            } else {
+                self.showNonAuthMessage()
+            }
+        }
     }
 
     func getMyLibrary() {
@@ -69,6 +80,15 @@ class MusicLibrary: UIViewController, UITableViewDataSource, UITableViewDelegate
         let mediaPlayer = MusicPlayer()
         mediaPlayer.libraryObjectIdent = mediaObject.key
         present(mediaPlayer, animated: true, completion: nil)
+    }
+
+    @IBAction func showAuthController(sender: UIButton) {
+        let authView = PALogin()
+        present(authView, animated: true, completion: nil)
+    }
+
+    func showNonAuthMessage() {
+        self.authNotificationView.isHidden = false
     }
 
 }

@@ -29,6 +29,36 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="71" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B3p-dx-0CB">
                                 <rect key="frame" x="0.0" y="96" width="375" height="522"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <view key="tableHeaderView" hidden="YES" contentMode="scaleToFill" id="OJS-0g-EoD">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="145"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Personal Library" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrv-Xd-SMe">
+                                            <rect key="frame" x="8" y="8" width="359" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g2m-Tw-kzT">
+                                            <rect key="frame" x="8" y="46" width="359" height="57"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <string key="text">To be able to view your personal library, you need to log in to the application. After authorization, you can use all the functions of the application.</string>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uiC-st-jaG">
+                                            <rect key="frame" x="165" y="107" width="45" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="LOGIN"/>
+                                            <connections>
+                                                <action selector="showAuthControllerWithSender:" destination="UBY-Lr-kJH" eventType="touchUpInside" id="Sbq-Fq-DHb"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.96862745100000003" green="0.94509803920000002" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </view>
                                 <connections>
                                     <outlet property="dataSource" destination="UBY-Lr-kJH" id="9P7-dl-g6X"/>
                                     <outlet property="delegate" destination="UBY-Lr-kJH" id="pXe-mg-N4g"/>
@@ -49,12 +79,13 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Library" image="library_icon" id="ulR-Bv-da3"/>
                     <connections>
+                        <outlet property="authNotificationView" destination="OJS-0g-EoD" id="YDe-7v-DCa"/>
                         <outlet property="songLibraryTable" destination="B3p-dx-0CB" id="LOz-KL-YVm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ymV-L0-pg6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-751.20000000000005" y="359.85221674876851"/>
+            <point key="canvasLocation" x="-751.20000000000005" y="359.37031484257875"/>
         </scene>
         <!--Browse-->
         <scene sceneID="hNz-n2-bh7">
@@ -64,64 +95,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fiC-vl-MJo">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
-                                <subviews>
-                                    <navigationBar contentMode="scaleToFill" largeTitles="YES" translatesAutoresizingMaskIntoConstraints="NO" id="83m-Kw-Mg1">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
-                                        <color key="barTintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <items>
-                                            <navigationItem title="Browse" id="Ksx-y9-EZb"/>
-                                        </items>
-                                    </navigationBar>
-                                </subviews>
-                            </stackView>
                             <imageView userInteractionEnabled="NO" contentMode="topRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dance_wallpaper" translatesAutoresizingMaskIntoConstraints="NO" id="uAm-gt-0V8">
                                 <rect key="frame" x="0.0" y="96" width="375" height="522"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pear_music_white" translatesAutoresizingMaskIntoConstraints="NO" id="Ani-tI-XaH">
-                                <rect key="frame" x="41" y="170" width="292" height="67"/>
+                                <rect key="frame" x="95" y="191" width="185" height="45"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="67" id="TaV-4u-Ez3"/>
+                                    <constraint firstAttribute="height" constant="45" id="Hi0-WX-FCf"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GGi-xM-LIR">
-                                <rect key="frame" x="46" y="537" width="283" height="61"/>
+                            <navigationBar contentMode="scaleToFill" largeTitles="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A6y-JW-OKu">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="61" id="f0f-nr-W3U"/>
+                                    <constraint firstAttribute="height" constant="96" id="n2C-34-BVr"/>
                                 </constraints>
-                                <state key="normal" image="trial_button"/>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="973-zB-NVe">
-                                <rect key="frame" x="16" y="245" width="343" height="284"/>
+                                <color key="barTintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <items>
+                                    <navigationItem title="Radio" id="0Ri-5u-GGZ"/>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAz-gx-WBf">
+                                <rect key="frame" x="16" y="283" width="343" height="218"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="284" id="BCP-Jf-WBv"/>
-                                    <constraint firstAttribute="width" constant="343" id="gBW-eN-sJZ"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="284" id="tKV-MT-6QW"/>
+                                    <constraint firstAttribute="width" constant="343" id="9zU-1c-0nB"/>
                                 </constraints>
                                 <string key="text">Very soon we will add the ability to listen to music without the Internet, the ability to offer you music, the cloud storage of your personal music library and much more.</string>
-                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="22"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="23"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="fiC-vl-MJo" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="07f-NA-zio"/>
-                            <constraint firstItem="Ani-tI-XaH" firstAttribute="top" secondItem="fiC-vl-MJo" secondAttribute="bottom" constant="74" id="7Ap-qN-MXY"/>
-                            <constraint firstItem="GGi-xM-LIR" firstAttribute="top" secondItem="973-zB-NVe" secondAttribute="bottom" constant="8" symbolic="YES" id="ApY-OG-8Gy"/>
-                            <constraint firstItem="Ani-tI-XaH" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="41" id="IWp-LC-xQW"/>
-                            <constraint firstItem="fiC-vl-MJo" firstAttribute="leading" secondItem="uAm-gt-0V8" secondAttribute="leading" id="LMr-RN-Z7o"/>
-                            <constraint firstItem="uAm-gt-0V8" firstAttribute="bottom" secondItem="PQr-Ze-W5v" secondAttribute="bottom" id="VPo-7Z-kDi"/>
-                            <constraint firstItem="973-zB-NVe" firstAttribute="top" secondItem="Ani-tI-XaH" secondAttribute="bottom" constant="8" symbolic="YES" id="Wet-m6-3he"/>
-                            <constraint firstItem="973-zB-NVe" firstAttribute="centerX" secondItem="GGi-xM-LIR" secondAttribute="centerX" id="bRb-eK-LY9"/>
-                            <constraint firstItem="GGi-xM-LIR" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="46" id="e7A-Mz-MFV"/>
-                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="GGi-xM-LIR" secondAttribute="bottom" constant="20" id="mbd-lt-Xce"/>
-                            <constraint firstItem="uAm-gt-0V8" firstAttribute="top" secondItem="fiC-vl-MJo" secondAttribute="bottom" id="qG6-ks-ktk"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="fiC-vl-MJo" secondAttribute="trailing" constant="-55" id="smM-Zb-hCw"/>
-                            <constraint firstItem="Ani-tI-XaH" firstAttribute="centerX" secondItem="973-zB-NVe" secondAttribute="centerX" id="ue6-Rd-3b5"/>
-                            <constraint firstItem="uAm-gt-0V8" firstAttribute="centerX" secondItem="Ani-tI-XaH" secondAttribute="centerX" id="uzR-53-9gA"/>
-                            <constraint firstAttribute="trailing" secondItem="uAm-gt-0V8" secondAttribute="trailing" id="vNL-ZC-eXn"/>
+                            <constraint firstItem="A6y-JW-OKu" firstAttribute="leading" secondItem="uAm-gt-0V8" secondAttribute="leading" id="2AI-9j-mWP"/>
+                            <constraint firstItem="uAm-gt-0V8" firstAttribute="top" secondItem="A6y-JW-OKu" secondAttribute="bottom" id="4w7-lg-JYB"/>
+                            <constraint firstItem="Ani-tI-XaH" firstAttribute="top" secondItem="A6y-JW-OKu" secondAttribute="bottom" constant="95" id="6sp-Wm-UPW"/>
+                            <constraint firstItem="A6y-JW-OKu" firstAttribute="centerX" secondItem="Ani-tI-XaH" secondAttribute="centerX" id="B9u-52-Ddb"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="xAz-gx-WBf" secondAttribute="bottom" constant="117" id="DaR-z4-31C"/>
+                            <constraint firstAttribute="trailing" secondItem="A6y-JW-OKu" secondAttribute="trailing" id="I4K-da-qvT"/>
+                            <constraint firstItem="Ani-tI-XaH" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="95" id="PPG-6g-hTS"/>
+                            <constraint firstItem="xAz-gx-WBf" firstAttribute="top" secondItem="Ani-tI-XaH" secondAttribute="bottom" constant="47" id="eNZ-pP-KDR"/>
+                            <constraint firstItem="A6y-JW-OKu" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" id="gzu-l2-twY"/>
+                            <constraint firstItem="A6y-JW-OKu" firstAttribute="trailing" secondItem="uAm-gt-0V8" secondAttribute="trailing" id="hKC-jM-hqp"/>
+                            <constraint firstItem="xAz-gx-WBf" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="jqk-6B-Qfk"/>
+                            <constraint firstItem="uAm-gt-0V8" firstAttribute="bottom" secondItem="PQr-Ze-W5v" secondAttribute="bottom" id="mRJ-ao-vlt"/>
+                            <constraint firstItem="Ani-tI-XaH" firstAttribute="centerX" secondItem="xAz-gx-WBf" secondAttribute="centerX" id="sKZ-nk-eKa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
@@ -269,6 +287,5 @@
         <image name="pear_music_white" width="1636" height="393"/>
         <image name="radio_icon" width="31" height="31"/>
         <image name="search_icon" width="31" height="31"/>
-        <image name="trial_button" width="587" height="127"/>
     </resources>
 </document>
