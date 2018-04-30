@@ -13,7 +13,6 @@ import Alamofire
 class MusicLibrary: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var songLibraryTable: UITableView!
-    @IBOutlet weak var authNotificationView: UIView!
     var arrayWithSongs: [LibraryModel] = []
 
     override func viewDidLoad() {
@@ -31,13 +30,27 @@ class MusicLibrary: UIViewController, UITableViewDataSource, UITableViewDelegate
             if user != nil {
                 self.getMyLibrary()
             } else {
-                self.showNonAuthMessage()
+                self.getWelcomeLibrary()
             }
         }
     }
 
     func getMyLibrary() {
-        let libraryRef = Database.database().reference(withPath: "Library/XR7WkXlfi7UD5IMmOU3aBKIS43K3")
+        let userRef = Auth.auth().currentUser?.uid
+        let libraryRef = Database.database().reference(withPath: "Library/\(userRef!)")
+        libraryRef.queryOrdered(byChild: "artist_name").observe(.value, with: { snapshot in
+            var newLibraryItem: [LibraryModel] = []
+            for item in snapshot.children {
+                let libraryItem = LibraryModel(snapshot: item as! DataSnapshot)
+                newLibraryItem.append(libraryItem)
+            }
+            self.arrayWithSongs = newLibraryItem
+            self.songLibraryTable.reloadData()
+        })
+    }
+
+    func getWelcomeLibrary() {
+        let libraryRef = Database.database().reference(withPath: "Welcome/Songs")
         libraryRef.queryOrdered(byChild: "artist_name").observe(.value, with: { snapshot in
             var newLibraryItem: [LibraryModel] = []
             for item in snapshot.children {
@@ -85,10 +98,6 @@ class MusicLibrary: UIViewController, UITableViewDataSource, UITableViewDelegate
     @IBAction func showAuthController(sender: UIButton) {
         let authView = PALogin()
         present(authView, animated: true, completion: nil)
-    }
-
-    func showNonAuthMessage() {
-        self.authNotificationView.isHidden = false
     }
 
 }

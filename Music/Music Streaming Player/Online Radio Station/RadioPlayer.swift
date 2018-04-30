@@ -30,7 +30,7 @@ class RadioPlayer: UIViewController {
         initSessionDelegate()
         becomeFirstResponder()
 
-    UIApplication.shared.beginReceivingRemoteControlEvents()
+        UIApplication.shared.beginReceivingRemoteControlEvents()
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,9 +55,9 @@ class RadioPlayer: UIViewController {
         let accountRef = Database.database().reference(withPath: "Radio/\(stationDeclarationObject!)")
         accountRef.queryOrdered(byChild: "like_count").observe(.value, with: { snapshot in
             let dataSnapshot = snapshot.value as? [String : AnyObject] ?? [:]
-            self.launchStreamingEvent(url: dataSnapshot["broadcast_url"] as! String)
             self.stationName.text = dataSnapshot["station_name"] as? String
             self.stationDetails.text = dataSnapshot["station_status"] as? String
+            self.launchStreamingEvent(url: String(format: "%@", dataSnapshot["broadcast_url"] as! String))
         })
     }
 
@@ -93,6 +93,11 @@ class RadioPlayer: UIViewController {
         } catch {
             print(error)
         }
+    }
+
+    @IBAction func closeController(sender: UIButton) {
+        streamCoreEvent.stopMusicCast()
+        dismiss(animated: true, completion: nil)
     }
 
 }

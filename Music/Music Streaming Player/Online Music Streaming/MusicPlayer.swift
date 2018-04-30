@@ -14,25 +14,25 @@ import MediaPlayer
 class MusicPlayer: UIViewController {
 
     @IBOutlet weak var songName: UILabel!
-    @IBOutlet weak var songArtist: UILabel!
-    @IBOutlet weak var songArtwork: UIImageView!
+    @IBOutlet weak var artistName: UILabel!
+    @IBOutlet weak var albumArtwork: UIImageView!
 
     @IBOutlet weak var playPauseButton: UIButton!
-    
+
     var libraryObjectIdent: String!
-    var mediaCastPlayer: CastCore!
+    var mediaPlayerCore: CastCore!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        songArtwork.layer.cornerRadius = 5.0
-        songArtwork.clipsToBounds = true
+        albumArtwork.layer.cornerRadius = 5.0
+        albumArtwork.clipsToBounds = true
 
         getLibrarySongItem()
-        initDelegateSession()
-        UIApplication.shared.beginReceivingRemoteControlEvents()
+        initSessionDelegate()
         becomeFirstResponder()
-        
+
+        UIApplication.shared.beginReceivingRemoteControlEvents()
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,21 +40,42 @@ class MusicPlayer: UIViewController {
     }
 
     func getLibrarySongItem() {
-        let accountRef = Database.database().reference(withPath: "Library/XR7WkXlfi7UD5IMmOU3aBKIS43K3/\(libraryObjectIdent!)")
-        accountRef.queryOrdered(byChild: "song_name").observe(.value, with: { snapshot in
-            let dataSnapshot = snapshot.value as? [String : AnyObject] ?? [:]
-            self.songName.text = dataSnapshot["song_name"] as? String
-            self.songArtist.text = dataSnapshot["artist_name"] as? String
-            self.initBroadcasting(url: dataSnapshot["stream_url"] as! String)
-
-            Alamofire.request(dataSnapshot["album_artwork"] as! String).responseImage { response in
-                if let image = response.result.value {
-                    self.songArtwork.image = image
-                }
+        Auth.auth().addStateDidChangeListener { auth, user in
+            if user != nil {
+                let userRef = Auth.auth().currentUser?.uid
+                let accountRef = Database.database().reference(withPath: "Library/\(userRef!)/\(self.libraryObjectIdent!)")
+                accountRef.queryOrdered(byChild: "song_name").observe(.value, with: { snapshot in
+                    let dataSnapshot = snapshot.value as? [String : AnyObject] ?? [:]
+                    self.songName.text = dataSnapshot["song_name"] as? String
+                    self.artistName.text = dataSnapshot["artist_name"] as? String
+                    self.initBroadcasting(url: dataSnapshot["stream_url"] as! String)
+                    
+                    Alamofire.request(dataSnapshot["album_artwork"] as! String).responseImage { response in
+                        if let image = response.result.value {
+                            self.albumArtwork.image = image
+                        }
+                    }
+                    
+                    self.castButtonStateSwitch()
+                })
+            } else {
+                let accountRef = Database.database().reference(withPath: "Welcome/Songs/\(self.libraryObjectIdent!)")
+                accountRef.queryOrdered(byChild: "song_name").observe(.value, with: { snapshot in
+                    let dataSnapshot = snapshot.value as? [String : AnyObject] ?? [:]
+                    self.songName.text = dataSnapshot["song_name"] as? String
+                    self.artistName.text = dataSnapshot["artist_name"] as? String
+                    self.initBroadcasting(url: dataSnapshot["stream_url"] as! String)
+                    
+                    Alamofire.request(dataSnapshot["album_artwork"] as! String).responseImage { response in
+                        if let image = response.result.value {
+                            self.albumArtwork.image = image
+                        }
+                    }
+                    
+                    self.castButtonStateSwitch()
+                })
             }
-
-            self.changePlayButton()
-        })
+        }
     }
 
     override func becomeFirstResponder() -> Bool {
@@ -64,44 +85,27 @@ class MusicPlayer: UIViewController {
     override func remoteControlReceived(with event: UIEvent?) {
         if event!.type == UIEventType.remoteControl {
             if event!.subtype == UIEventSubtype.remoteControlPause {
-                mediaCastPlayer.pauseMusicCast()
+                mediaPlayerCore.pauseMusicCast()
             } else if event!.subtype == UIEventSubtype.remoteControlPlay {
-                mediaCastPlayer.playMusicCast()
+                mediaPlayerCore.playMusicCast()
             }
         }
     }
 
     func initBroadcasting(url: String) {
-        mediaCastPlayer = CastCore()
-        mediaCastPlayer.mediaStreaming(streamURL: url)
+        mediaPlayerCore = CastCore()
+        mediaPlayerCore.mediaStreaming(streamURL: url)
     }
 
-    func changePlayButton() {
-        if (mediaCastPlayer!.mediaCast!.rate > 0) {
+    func castButtonStateSwitch() {
+        if (mediaPlayerCore!.mediaCast!.rate > 0) {
             playPauseButton.setImage(UIImage(named: "player_pause_icon"), for: UIControlState.normal)
         } else {
             playPauseButton.setImage(UIImage(named: "player_play_icon"), for: UIControlState.normal)
         }
     }
 
-    @IBAction func previousSong(sender: UIButton) {
-        
-    }
-
-    @IBAction func playPauseHandler(sender: AnyObject) {
-        if (mediaCastPlayer.mediaCast.rate > 0) {
-            mediaCastPlayer.pauseMusicCast()
-        } else {
-            mediaCastPlayer.playMusicCast()
-        }
-        changePlayButton()
-    }
-
-    @IBAction func nextSong(sender: UIButton) {
-        
-    }
-
-    func initDelegateSession() {
+    func initSessionDelegate() {
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
         } catch {
@@ -109,28 +113,33 @@ class MusicPlayer: UIViewController {
         }
     }
 
-    func handleInteruption(notification: NSNotification) {
-        mediaCastPlayer.pauseMusicCast()
+    @IBAction func closeController(sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+
+    @IBAction func previousSong(sender: UIButton) {
         
-        let interuptionTypeAsObject = notification.userInfo![AVAudioSessionInterruptionTypeKey] as! NSNumber
-        let interuptionType = AVAudioSessionInterruptionType(rawValue: UInt(interuptionTypeAsObject.uint64Value))
+    }
+
+    @IBAction func playPauseHandler(sender: AnyObject) {
+        if (mediaPlayerCore.mediaCast.rate > 0) {
+            mediaPlayerCore.pauseMusicCast()
+        } else {
+            mediaPlayerCore.playMusicCast()
+        }
+        castButtonStateSwitch()
+    }
+
+    @IBAction func nextSong(sender: UIButton) {
         
-       
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @IBAction func likeCurrentSong(sender: UIButton) {
-        
+        if (mediaPlayerCore!.mediaCast!.rate > 0) {
+            playPauseButton.setImage(UIImage(named: "player_pause_icon"), for: UIControlState.normal)
+        } else {
+            playPauseButton.setImage(UIImage(named: "player_play_icon"), for: UIControlState.normal)
+        }
     }
     
     @IBAction func showAdvancedMenu(sender: UIButton) {

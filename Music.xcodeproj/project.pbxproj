@@ -42,6 +42,8 @@
 		6FDE09262094FA9600364469 /* RadioPlayer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FDE09242094FA9600364469 /* RadioPlayer.xib */; };
 		6FDE092920952E4700364469 /* AppUIElements.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FDE092820952E4700364469 /* AppUIElements.xcassets */; };
 		6FDE092B20952E8E00364469 /* SamsungOne-200.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6FDE092A20952E8900364469 /* SamsungOne-200.ttf */; };
+		6FE34C7C209689A4009208EF /* RadioStationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE34C7A209689A4009208EF /* RadioStationCell.swift */; };
+		6FE34C7D209689A4009208EF /* RadioStationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FE34C7B209689A4009208EF /* RadioStationCell.xib */; };
 		A196E73E68B45DEAB12E6F48 /* Pods_Music.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58960EC5F4BB325E7351F7CF /* Pods_Music.framework */; };
 /* End PBXBuildFile section */
 
@@ -107,6 +109,8 @@
 		6FDE09242094FA9600364469 /* RadioPlayer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RadioPlayer.xib; sourceTree = "<group>"; };
 		6FDE092820952E4700364469 /* AppUIElements.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppUIElements.xcassets; sourceTree = "<group>"; };
 		6FDE092A20952E8900364469 /* SamsungOne-200.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SamsungOne-200.ttf"; sourceTree = "<group>"; };
+		6FE34C7A209689A4009208EF /* RadioStationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioStationCell.swift; sourceTree = "<group>"; };
+		6FE34C7B209689A4009208EF /* RadioStationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RadioStationCell.xib; sourceTree = "<group>"; };
 		796216EBF7AE8F5F1402A65B /* Pods-Music.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Music.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Music/Pods-Music.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -246,6 +250,8 @@
 				6F0581CC2093FA1A00FA6F20 /* MusicLibraryCell.xib */,
 				6F0581CF2093FA3000FA6F20 /* SearchMusicCell.swift */,
 				6F0581D02093FA3000FA6F20 /* SearchMusicCell.xib */,
+				6FE34C7A209689A4009208EF /* RadioStationCell.swift */,
+				6FE34C7B209689A4009208EF /* RadioStationCell.xib */,
 			);
 			path = "Table Content Cell";
 			sourceTree = "<group>";
@@ -410,7 +416,7 @@
 								enabled = 1;
 							};
 							com.apple.Push = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -452,6 +458,7 @@
 				6FDE092920952E4700364469 /* AppUIElements.xcassets in Resources */,
 				6F0581942093ED9300FA6F20 /* LaunchScreen.storyboard in Resources */,
 				6F0581DD209408CA00FA6F20 /* PARegister.xib in Resources */,
+				6FE34C7D209689A4009208EF /* RadioStationCell.xib in Resources */,
 				6F0581912093ED9300FA6F20 /* Assets.xcassets in Resources */,
 				6F0581E420940A1A00FA6F20 /* CustomerProfile.xib in Resources */,
 				6FDE09262094FA9600364469 /* RadioPlayer.xib in Resources */,
@@ -570,6 +577,7 @@
 				6F0581D12093FA3000FA6F20 /* SearchMusicCell.swift in Sources */,
 				6FDE09252094FA9600364469 /* RadioPlayer.swift in Sources */,
 				6FDE091F2094A7BD00364469 /* CastCore.swift in Sources */,
+				6FE34C7C209689A4009208EF /* RadioStationCell.swift in Sources */,
 				6F0581BE2093F88B00FA6F20 /* BrowseMusic.swift in Sources */,
 				6F0581C42093F90100FA6F20 /* RadioStation.swift in Sources */,
 				6F0581C22093F8C700FA6F20 /* MusicLibrary.swift in Sources */,
@@ -757,7 +765,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.pear.music.Music;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pear.music;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -777,7 +785,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.pear.music.Music;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pear.music;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;

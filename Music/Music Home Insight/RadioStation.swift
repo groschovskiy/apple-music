@@ -45,20 +45,20 @@ class RadioStation: UIViewController, UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let identifier = "songInitCell"
-        var cell: MusicLibraryCell! = tableView.dequeueReusableCell(withIdentifier: identifier) as? MusicLibraryCell
+        let identifier = "radioInitCell"
+        var cell: RadioStationCell! = tableView.dequeueReusableCell(withIdentifier: identifier) as? RadioStationCell
         if cell == nil {
-            tableView.register(UINib(nibName: "MusicLibraryCell", bundle: nil), forCellReuseIdentifier: identifier)
-            cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? MusicLibraryCell
+            tableView.register(UINib(nibName: "RadioStationCell", bundle: nil), forCellReuseIdentifier: identifier)
+            cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? RadioStationCell
         }
         
         let libraryObject = stationServiceDict[indexPath.row]
-        cell.songTitle.text = libraryObject.name
-        cell.songDetails.text = libraryObject.status
+        cell.stationName.text = libraryObject.name
+        cell.stationInfo.text = libraryObject.status
 
         Alamofire.request(libraryObject.artwork).responseImage { response in
             if let image = response.result.value {
-                cell.songArtwork.image = image
+                cell.stationArtwork.image = image
             }
         }
 

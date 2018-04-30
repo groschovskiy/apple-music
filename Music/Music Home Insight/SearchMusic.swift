@@ -14,7 +14,7 @@ class SearchMusic: UIViewController, UITableViewDataSource, UITableViewDelegate,
     @IBOutlet weak var tableView: UITableView!
 
     var searchActive : Bool = false
-    var data = ["San Francisco","New York","San Jose","Chicago","Los Angeles","Austin","Seattle"]
+    var data = ["Avicii","Dua Lipa","Diplo","Truwer","Scriptonite","T-Fest","David Guetta"]
     var filtered:[String] = []
     
     override func viewDidLoad() {
@@ -23,6 +23,10 @@ class SearchMusic: UIViewController, UITableViewDataSource, UITableViewDelegate,
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
+
+        let searchController = UISearchController(searchResultsController: nil)
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = true
     }
 
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
@@ -42,7 +46,6 @@ class SearchMusic: UIViewController, UITableViewDataSource, UITableViewDelegate,
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
         filtered = data.filter({ (text) -> Bool in
             let tmp: NSString = text as NSString
             let range = tmp.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
@@ -58,7 +61,6 @@ class SearchMusic: UIViewController, UITableViewDataSource, UITableViewDelegate,
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
