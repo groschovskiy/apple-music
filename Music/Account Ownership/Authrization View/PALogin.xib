@@ -1,13 +1,24 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SamsungOne-200.ttf">
+            <string>SamsungOne-200</string>
+        </array>
+    </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PALogin" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PALogin" customModule="Music" customModuleProvider="target">
             <connections>
+                <outlet property="password" destination="IGf-fZ-sB9" id="1aZ-eE-QOC"/>
+                <outlet property="username" destination="Zl2-uP-hCi" id="AFP-yC-ZXH"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,8 +26,154 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="horizontal_line" translatesAutoresizingMaskIntoConstraints="NO" id="hzp-bb-ScN">
+                    <rect key="frame" x="32" y="331" width="310" height="5"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="5" id="D5t-96-XjI"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="68Z-as-KYT">
+                    <rect key="frame" x="32" y="278" width="310" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="zdc-1Q-ATC"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="SamsungOne-200" family="SamsungOne" pointSize="17"/>
+                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome back, Please login to continue" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uW2-E9-aki">
+                    <rect key="frame" x="32" y="176" width="310" height="57"/>
+                    <fontDescription key="fontDescription" name="SamsungOne-200" family="SamsungOne" pointSize="19"/>
+                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HTO-Kv-O1h">
+                    <rect key="frame" x="32" y="577" width="310" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="Gdg-EB-SWD"/>
+                    </constraints>
+                    <state key="normal" image="login_button"/>
+                    <connections>
+                        <action selector="authWithCredentialsWithSender:" destination="-1" eventType="touchUpInside" id="tge-Hb-wo1"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="horizontal_line" translatesAutoresizingMaskIntoConstraints="NO" id="2VX-OG-mVL">
+                    <rect key="frame" x="32" y="402" width="310" height="5"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="5" id="Pdh-1M-Jkg"/>
+                    </constraints>
+                </imageView>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="developer" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IGf-fZ-sB9">
+                    <rect key="frame" x="32" y="372" width="310" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="shj-U8-0f3"/>
+                    </constraints>
+                    <color key="textColor" red="0.75240129229999997" green="0.6130924821" blue="0.48594397309999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" name="SamsungOne-200" family="SamsungOne" pointSize="17"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" secureTextEntry="YES"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="developer@pear.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zl2-uP-hCi">
+                    <rect key="frame" x="32" y="301" width="310" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="q3q-ef-Kok"/>
+                    </constraints>
+                    <color key="textColor" red="0.75240129229999997" green="0.6130924821" blue="0.48594397309999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" name="SamsungOne-200" family="SamsungOne" pointSize="17"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" keyboardAppearance="alert"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRC-Us-cTR">
+                    <rect key="frame" x="32" y="415" width="310" height="15"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="15" id="Lzv-oq-XAi"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="SamsungOne-200" family="SamsungOne" pointSize="14"/>
+                    <state key="normal" title="Forgot password?">
+                        <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="restoreAccountCredentials" destination="-1" eventType="touchUpInside" id="k13-dU-yH4"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jjd-HZ-UUS">
+                    <rect key="frame" x="218" y="630" width="70" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="EZE-VR-ag6"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="SamsungOne-200" family="SamsungOne" pointSize="12"/>
+                    <state key="normal" title="Sign up here.">
+                        <color key="titleColor" red="0.75240129229999997" green="0.6130924821" blue="0.48594397309999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JD6-B2-tb8">
+                    <rect key="frame" x="32" y="349" width="310" height="20"/>
+                    <fontDescription key="fontDescription" name="SamsungOne-200" family="SamsungOne" pointSize="17"/>
+                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dont have an account?" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sJh-WW-oyo">
+                    <rect key="frame" x="90" y="630" width="120" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="ukW-JR-fm3"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="SamsungOne-200" family="SamsungOne" pointSize="12"/>
+                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pear_music_black" translatesAutoresizingMaskIntoConstraints="NO" id="v0G-CL-qZ4">
+                    <rect key="frame" x="25" y="94" width="200" height="56"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="56" id="Ruw-F1-5Kr"/>
+                    </constraints>
+                </imageView>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="hzp-bb-ScN" firstAttribute="trailing" secondItem="JD6-B2-tb8" secondAttribute="trailing" id="0p2-w6-f1y"/>
+                <constraint firstItem="cRC-Us-cTR" firstAttribute="top" secondItem="2VX-OG-mVL" secondAttribute="bottom" constant="8" symbolic="YES" id="58z-QW-f8M"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Jjd-HZ-UUS" secondAttribute="trailing" constant="87" id="60a-wd-OaA"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="v0G-CL-qZ4" secondAttribute="trailing" constant="150" id="6RZ-KF-miM"/>
+                <constraint firstItem="JD6-B2-tb8" firstAttribute="top" secondItem="hzp-bb-ScN" secondAttribute="bottom" constant="13" id="6SW-5Y-vN6"/>
+                <constraint firstItem="v0G-CL-qZ4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="Aaj-QP-xiz"/>
+                <constraint firstItem="Zl2-uP-hCi" firstAttribute="top" secondItem="68Z-as-KYT" secondAttribute="bottom" constant="3" id="ChU-wN-4WX"/>
+                <constraint firstItem="hzp-bb-ScN" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="DzV-v0-14z"/>
+                <constraint firstItem="hzp-bb-ScN" firstAttribute="leading" secondItem="JD6-B2-tb8" secondAttribute="leading" id="Eab-w8-bJf"/>
+                <constraint firstItem="68Z-as-KYT" firstAttribute="trailing" secondItem="Zl2-uP-hCi" secondAttribute="trailing" id="H1T-4I-Ukt"/>
+                <constraint firstItem="cRC-Us-cTR" firstAttribute="trailing" secondItem="HTO-Kv-O1h" secondAttribute="trailing" id="HAJ-vb-V6Q"/>
+                <constraint firstItem="sJh-WW-oyo" firstAttribute="bottom" secondItem="Jjd-HZ-UUS" secondAttribute="bottom" id="Hbq-y6-cNX"/>
+                <constraint firstItem="sJh-WW-oyo" firstAttribute="top" secondItem="Jjd-HZ-UUS" secondAttribute="top" id="LHT-Ir-9ju"/>
+                <constraint firstItem="2VX-OG-mVL" firstAttribute="leading" secondItem="cRC-Us-cTR" secondAttribute="leading" id="Lva-wC-nI6"/>
+                <constraint firstItem="sJh-WW-oyo" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="90" id="PZZ-5z-GuQ"/>
+                <constraint firstItem="IGf-fZ-sB9" firstAttribute="leading" secondItem="2VX-OG-mVL" secondAttribute="leading" id="PkI-Gm-PB6"/>
+                <constraint firstItem="IGf-fZ-sB9" firstAttribute="trailing" secondItem="2VX-OG-mVL" secondAttribute="trailing" id="Qdd-u4-fMG"/>
+                <constraint firstItem="68Z-as-KYT" firstAttribute="top" secondItem="uW2-E9-aki" secondAttribute="bottom" constant="45" id="Rr5-J4-i1M"/>
+                <constraint firstItem="uW2-E9-aki" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Uud-KY-05Z"/>
+                <constraint firstItem="v0G-CL-qZ4" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="74" id="Vfg-ir-jPC"/>
+                <constraint firstItem="uW2-E9-aki" firstAttribute="trailing" secondItem="68Z-as-KYT" secondAttribute="trailing" id="Vwq-a9-dkr"/>
+                <constraint firstItem="uW2-E9-aki" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="W62-iv-7hj"/>
+                <constraint firstItem="uW2-E9-aki" firstAttribute="leading" secondItem="68Z-as-KYT" secondAttribute="leading" id="WCK-vJ-c6M"/>
+                <constraint firstItem="cRC-Us-cTR" firstAttribute="leading" secondItem="HTO-Kv-O1h" secondAttribute="leading" id="YVB-Dc-5zM"/>
+                <constraint firstItem="JD6-B2-tb8" firstAttribute="trailing" secondItem="IGf-fZ-sB9" secondAttribute="trailing" id="bQM-J1-95P"/>
+                <constraint firstItem="Zl2-uP-hCi" firstAttribute="leading" secondItem="hzp-bb-ScN" secondAttribute="leading" id="gGc-4t-s8c"/>
+                <constraint firstItem="2VX-OG-mVL" firstAttribute="top" secondItem="IGf-fZ-sB9" secondAttribute="bottom" id="hdY-18-UyE"/>
+                <constraint firstItem="Zl2-uP-hCi" firstAttribute="trailing" secondItem="hzp-bb-ScN" secondAttribute="trailing" id="jrZ-25-IwK"/>
+                <constraint firstItem="Jjd-HZ-UUS" firstAttribute="leading" secondItem="sJh-WW-oyo" secondAttribute="trailing" constant="8" symbolic="YES" id="jvL-OD-hBo"/>
+                <constraint firstItem="68Z-as-KYT" firstAttribute="leading" secondItem="Zl2-uP-hCi" secondAttribute="leading" id="lrc-kj-5kA"/>
+                <constraint firstItem="JD6-B2-tb8" firstAttribute="leading" secondItem="IGf-fZ-sB9" secondAttribute="leading" id="mwK-fO-Vwk"/>
+                <constraint firstItem="IGf-fZ-sB9" firstAttribute="top" secondItem="JD6-B2-tb8" secondAttribute="bottom" constant="3" id="n4g-mJ-4Qf"/>
+                <constraint firstItem="sJh-WW-oyo" firstAttribute="top" secondItem="HTO-Kv-O1h" secondAttribute="bottom" constant="8" symbolic="YES" id="u8j-z5-119"/>
+                <constraint firstAttribute="bottom" secondItem="sJh-WW-oyo" secondAttribute="bottom" constant="20" symbolic="YES" id="uo6-BM-ggg"/>
+                <constraint firstItem="uW2-E9-aki" firstAttribute="top" secondItem="v0G-CL-qZ4" secondAttribute="bottom" constant="26" id="vRk-s8-e0V"/>
+                <constraint firstItem="2VX-OG-mVL" firstAttribute="trailing" secondItem="cRC-Us-cTR" secondAttribute="trailing" id="xgR-Ia-K7f"/>
+                <constraint firstItem="hzp-bb-ScN" firstAttribute="top" secondItem="Zl2-uP-hCi" secondAttribute="bottom" id="y4z-0r-3fK"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="horizontal_line" width="733" height="10"/>
+        <image name="login_button" width="840" height="140"/>
+        <image name="pear_music_black" width="1707" height="463"/>
+    </resources>
 </document>

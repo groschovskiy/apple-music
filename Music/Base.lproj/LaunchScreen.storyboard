@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,58 +18,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_wallpaper" translatesAutoresizingMaskIntoConstraints="NO" id="GCg-Xz-faP">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_screen_2" translatesAutoresizingMaskIntoConstraints="NO" id="zLH-De-fX3">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pear_music_white" translatesAutoresizingMaskIntoConstraints="NO" id="CDT-kG-ZDh">
-                                <rect key="frame" x="37" y="227" width="301" height="72"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pear_music_white" translatesAutoresizingMaskIntoConstraints="NO" id="0wk-iB-Mq7">
+                                <rect key="frame" x="69" y="179" width="236" height="55"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="72" id="BJ2-j2-9xx"/>
+                                    <constraint firstAttribute="height" constant="55" id="9wW-nG-qcf"/>
+                                    <constraint firstAttribute="width" constant="236" id="QyG-0i-LRX"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Limited Edition" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pfi-nD-9LT">
-                                <rect key="frame" x="16" y="698" width="343" height="33"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="33" id="aiL-7u-OII"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="35"/>
-                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alexandra Melnova" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFB-df-5nJ">
-                                <rect key="frame" x="16" y="739" width="343" height="29"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="29" id="kNB-Er-zlO"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="35"/>
-                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="aFB-df-5nJ" firstAttribute="top" secondItem="pfi-nD-9LT" secondAttribute="bottom" constant="8" symbolic="YES" id="7pD-JU-iPJ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="aFB-df-5nJ" secondAttribute="bottom" constant="10" id="Cmk-SI-O2g"/>
-                            <constraint firstItem="pfi-nD-9LT" firstAttribute="leading" secondItem="aFB-df-5nJ" secondAttribute="leading" id="RTM-HK-AeF"/>
-                            <constraint firstItem="pfi-nD-9LT" firstAttribute="trailing" secondItem="aFB-df-5nJ" secondAttribute="trailing" id="Rdk-PD-qqz"/>
-                            <constraint firstItem="GCg-Xz-faP" firstAttribute="centerX" secondItem="CDT-kG-ZDh" secondAttribute="centerX" id="bbh-l0-WUF"/>
-                            <constraint firstAttribute="trailing" secondItem="GCg-Xz-faP" secondAttribute="trailing" id="hge-St-Kgm"/>
-                            <constraint firstItem="CDT-kG-ZDh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="183" id="jCk-Oc-s9x"/>
-                            <constraint firstItem="CDT-kG-ZDh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="37" id="kzJ-NR-eXp"/>
-                            <constraint firstItem="GCg-Xz-faP" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="pEn-JA-rLu"/>
-                            <constraint firstItem="pfi-nD-9LT" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="sPd-h4-X7J"/>
-                            <constraint firstItem="CDT-kG-ZDh" firstAttribute="centerX" secondItem="pfi-nD-9LT" secondAttribute="centerX" id="tff-Ba-FNF"/>
+                            <constraint firstItem="zLH-De-fX3" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="2Gh-di-uSc"/>
+                            <constraint firstItem="0wk-iB-Mq7" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-200" id="bg7-q9-pTl"/>
+                            <constraint firstItem="zLH-De-fX3" firstAttribute="centerX" secondItem="0wk-iB-Mq7" secondAttribute="centerX" id="cFi-8b-5Fg"/>
+                            <constraint firstItem="0wk-iB-Mq7" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="oJ8-An-YV1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52" y="374.6305418719212"/>
+            <point key="canvasLocation" x="52" y="373.15270935960592"/>
         </scene>
     </scenes>
     <resources>
         <image name="pear_music_white" width="1636" height="393"/>
-        <image name="splash_wallpaper" width="375" height="812"/>
+        <image name="splash_screen_2" width="375" height="812"/>
     </resources>
 </document>

@@ -19,6 +19,7 @@ class CastCore: NSObject {
     }
 
     func mediaStreaming(streamURL: String) {
+        stopMusicCast()
         let castURL = NSURL(string: streamURL)
         mediaCast = AVPlayer(url: castURL! as URL)
         initLockScreenMeta(metaURL: streamURL)
@@ -34,6 +35,13 @@ class CastCore: NSObject {
     func pauseMusicCast() {
         if (mediaCast.rate > 0 && mediaCast.error == nil) {
             mediaCast.pause()
+        }
+    }
+
+    func stopMusicCast() {
+        if (mediaCast.rate > 0 && mediaCast.error == nil) {
+            mediaCast.pause()
+            mediaCast = nil
         }
     }
 

@@ -13,7 +13,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="71" id="KGk-i7-Jjw" customClass="MusicLibraryCell" customModule="Music" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="songInitCell" rowHeight="71" id="KGk-i7-Jjw" customClass="MusicLibraryCell" customModule="Music" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="71"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -23,12 +23,11 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MEx-Ca-2Rw">
                         <rect key="frame" x="8" y="4" width="304" height="62"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_wallpaper" translatesAutoresizingMaskIntoConstraints="NO" id="TKq-GG-Juc">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TKq-GG-Juc">
                                 <rect key="frame" x="8" y="8" width="46" height="46"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="46" id="DQT-Ok-1aG"/>
-                                    <constraint firstAttribute="width" constant="46" id="NBh-ua-3Aa"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="46" id="XCP-68-c1Q"/>
+                                    <constraint firstAttribute="width" constant="46" id="Lhe-Zu-WbC"/>
+                                    <constraint firstAttribute="height" constant="46" id="xk2-qV-5h9"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skriptonite" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L8s-f1-HGU">
@@ -40,7 +39,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Polozhenie (feat. T-Fest)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5cD-BD-sUh">
                                 <rect key="frame" x="62" y="36" width="234" height="17"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="17" id="Mbx-fT-e1v"/>
+                                    <constraint firstAttribute="height" constant="17" id="tnr-Ho-RBe"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="14"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -49,24 +48,23 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="L8s-f1-HGU" firstAttribute="top" secondItem="MEx-Ca-2Rw" secondAttribute="top" constant="9" id="3Gg-yK-xSW"/>
-                            <constraint firstAttribute="bottom" secondItem="5cD-BD-sUh" secondAttribute="bottom" constant="9" id="3LL-v7-CZX"/>
-                            <constraint firstItem="L8s-f1-HGU" firstAttribute="trailing" secondItem="MEx-Ca-2Rw" secondAttribute="trailingMargin" id="DH1-dc-v3Y"/>
-                            <constraint firstItem="L8s-f1-HGU" firstAttribute="leading" secondItem="TKq-GG-Juc" secondAttribute="trailing" constant="8" symbolic="YES" id="GEX-8b-qlr"/>
-                            <constraint firstItem="5cD-BD-sUh" firstAttribute="top" secondItem="L8s-f1-HGU" secondAttribute="bottom" constant="2" id="MMN-tf-9sI"/>
-                            <constraint firstItem="TKq-GG-Juc" firstAttribute="top" secondItem="MEx-Ca-2Rw" secondAttribute="topMargin" id="MQF-8S-jiN"/>
-                            <constraint firstItem="TKq-GG-Juc" firstAttribute="leading" secondItem="MEx-Ca-2Rw" secondAttribute="leadingMargin" id="aTn-vc-B53"/>
-                            <constraint firstItem="TKq-GG-Juc" firstAttribute="bottom" secondItem="MEx-Ca-2Rw" secondAttribute="bottomMargin" id="bK8-xF-8zr"/>
-                            <constraint firstItem="L8s-f1-HGU" firstAttribute="leading" secondItem="5cD-BD-sUh" secondAttribute="leading" id="nHQ-HK-hhO"/>
-                            <constraint firstItem="L8s-f1-HGU" firstAttribute="trailing" secondItem="5cD-BD-sUh" secondAttribute="trailing" id="opl-k0-Jfk"/>
+                            <constraint firstAttribute="bottom" secondItem="5cD-BD-sUh" secondAttribute="bottom" constant="9" id="380-be-o9c"/>
+                            <constraint firstItem="TKq-GG-Juc" firstAttribute="top" secondItem="MEx-Ca-2Rw" secondAttribute="topMargin" id="5Xf-ZZ-B8Y"/>
+                            <constraint firstItem="L8s-f1-HGU" firstAttribute="leading" secondItem="5cD-BD-sUh" secondAttribute="leading" id="6YL-JB-wwt"/>
+                            <constraint firstItem="L8s-f1-HGU" firstAttribute="trailing" secondItem="5cD-BD-sUh" secondAttribute="trailing" id="AUJ-fd-piZ"/>
+                            <constraint firstItem="L8s-f1-HGU" firstAttribute="trailing" secondItem="MEx-Ca-2Rw" secondAttribute="trailingMargin" id="OU3-S8-DKc"/>
+                            <constraint firstAttribute="height" constant="62" id="TWg-W4-f1s"/>
+                            <constraint firstItem="5cD-BD-sUh" firstAttribute="top" secondItem="L8s-f1-HGU" secondAttribute="bottom" constant="2" id="Uju-m9-ZNu"/>
+                            <constraint firstItem="L8s-f1-HGU" firstAttribute="leading" secondItem="TKq-GG-Juc" secondAttribute="trailing" constant="8" symbolic="YES" id="bE3-fu-dGV"/>
+                            <constraint firstItem="L8s-f1-HGU" firstAttribute="top" secondItem="MEx-Ca-2Rw" secondAttribute="top" constant="9" id="stn-29-m61"/>
+                            <constraint firstItem="TKq-GG-Juc" firstAttribute="leading" secondItem="MEx-Ca-2Rw" secondAttribute="leadingMargin" id="wsL-7z-FZu"/>
                         </constraints>
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="MEx-Ca-2Rw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-7" id="2SC-0P-r8j"/>
-                    <constraint firstItem="MEx-Ca-2Rw" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="O0v-je-gmA"/>
-                    <constraint firstItem="MEx-Ca-2Rw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="Zke-bW-heq"/>
-                    <constraint firstItem="MEx-Ca-2Rw" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="hE0-Cc-KRR"/>
+                    <constraint firstItem="MEx-Ca-2Rw" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="afT-8u-7ty"/>
+                    <constraint firstItem="MEx-Ca-2Rw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="jD6-1v-jrG"/>
+                    <constraint firstItem="MEx-Ca-2Rw" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="k51-l0-ClC"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -80,7 +78,4 @@
             <point key="canvasLocation" x="25" y="65.5"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="splash_wallpaper" width="375" height="812"/>
-    </resources>
 </document>
