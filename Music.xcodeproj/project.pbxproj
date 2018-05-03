@@ -33,6 +33,10 @@
 		6F0581E320940A1A00FA6F20 /* CustomerProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0581E120940A1A00FA6F20 /* CustomerProfile.swift */; };
 		6F0581E420940A1A00FA6F20 /* CustomerProfile.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F0581E220940A1A00FA6F20 /* CustomerProfile.xib */; };
 		6F0581E620940E7A00FA6F20 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6F0581E520940E7A00FA6F20 /* GoogleService-Info.plist */; };
+		6F70F0D5209B490D00C6459C /* Product Sans Bold Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6F70F0D2209B490800C6459C /* Product Sans Bold Italic.ttf */; };
+		6F70F0D6209B490D00C6459C /* Product Sans Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6F70F0D4209B490800C6459C /* Product Sans Bold.ttf */; };
+		6F70F0D7209B490D00C6459C /* Product Sans Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6F70F0D1209B490800C6459C /* Product Sans Italic.ttf */; };
+		6F70F0D8209B490D00C6459C /* Product Sans Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6F70F0D3209B490800C6459C /* Product Sans Regular.ttf */; };
 		6FDE091820949A1C00364469 /* MusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDE091620949A1C00364469 /* MusicPlayer.swift */; };
 		6FDE091920949A1C00364469 /* MusicPlayer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FDE091720949A1C00364469 /* MusicPlayer.xib */; };
 		6FDE091C20949C4100364469 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FDE091B20949C4100364469 /* AudioToolbox.framework */; };
@@ -99,6 +103,10 @@
 		6F0581E120940A1A00FA6F20 /* CustomerProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerProfile.swift; sourceTree = "<group>"; };
 		6F0581E220940A1A00FA6F20 /* CustomerProfile.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomerProfile.xib; sourceTree = "<group>"; };
 		6F0581E520940E7A00FA6F20 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6F70F0D1209B490800C6459C /* Product Sans Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Product Sans Italic.ttf"; sourceTree = "<group>"; };
+		6F70F0D2209B490800C6459C /* Product Sans Bold Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Product Sans Bold Italic.ttf"; sourceTree = "<group>"; };
+		6F70F0D3209B490800C6459C /* Product Sans Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Product Sans Regular.ttf"; sourceTree = "<group>"; };
+		6F70F0D4209B490800C6459C /* Product Sans Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Product Sans Bold.ttf"; sourceTree = "<group>"; };
 		6FDE091620949A1C00364469 /* MusicPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayer.swift; sourceTree = "<group>"; };
 		6FDE091720949A1C00364469 /* MusicPlayer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MusicPlayer.xib; sourceTree = "<group>"; };
 		6FDE091A20949C3900364469 /* Music.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Music.entitlements; sourceTree = "<group>"; };
@@ -225,11 +233,11 @@
 		6F0581B82093F62100FA6F20 /* Graphic Concepts */ = {
 			isa = PBXGroup;
 			children = (
+				6F70F0D9209B491600C6459C /* Custom Fonts */,
 				6F0581B92093F63900FA6F20 /* AppWallpaper.xcassets */,
 				6F0581BB2093F65300FA6F20 /* AppLogo.xcassets */,
 				6FDE09202094AC3500364469 /* AppIcon.xcassets */,
 				6FDE092820952E4700364469 /* AppUIElements.xcassets */,
-				6FDE092A20952E8900364469 /* SamsungOne-200.ttf */,
 			);
 			path = "Graphic Concepts";
 			sourceTree = "<group>";
@@ -292,6 +300,18 @@
 				6F0581DF209409C200FA6F20 /* PearSecurity.swift */,
 			);
 			path = "Pear API Service";
+			sourceTree = "<group>";
+		};
+		6F70F0D9209B491600C6459C /* Custom Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				6FDE092A20952E8900364469 /* SamsungOne-200.ttf */,
+				6F70F0D2209B490800C6459C /* Product Sans Bold Italic.ttf */,
+				6F70F0D4209B490800C6459C /* Product Sans Bold.ttf */,
+				6F70F0D1209B490800C6459C /* Product Sans Italic.ttf */,
+				6F70F0D3209B490800C6459C /* Product Sans Regular.ttf */,
+			);
+			path = "Custom Fonts";
 			sourceTree = "<group>";
 		};
 		6FDE09152094999B00364469 /* Music Streaming Player */ = {
@@ -456,11 +476,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FDE092920952E4700364469 /* AppUIElements.xcassets in Resources */,
+				6F70F0D5209B490D00C6459C /* Product Sans Bold Italic.ttf in Resources */,
 				6F0581942093ED9300FA6F20 /* LaunchScreen.storyboard in Resources */,
 				6F0581DD209408CA00FA6F20 /* PARegister.xib in Resources */,
 				6FE34C7D209689A4009208EF /* RadioStationCell.xib in Resources */,
 				6F0581912093ED9300FA6F20 /* Assets.xcassets in Resources */,
 				6F0581E420940A1A00FA6F20 /* CustomerProfile.xib in Resources */,
+				6F70F0D7209B490D00C6459C /* Product Sans Italic.ttf in Resources */,
+				6F70F0D8209B490D00C6459C /* Product Sans Regular.ttf in Resources */,
 				6FDE09262094FA9600364469 /* RadioPlayer.xib in Resources */,
 				6F0581D22093FA3000FA6F20 /* SearchMusicCell.xib in Resources */,
 				6FDE09212094AC3500364469 /* AppIcon.xcassets in Resources */,
@@ -472,6 +495,7 @@
 				6FDE092B20952E8E00364469 /* SamsungOne-200.ttf in Resources */,
 				6FDE091920949A1C00364469 /* MusicPlayer.xib in Resources */,
 				6F0581BC2093F65300FA6F20 /* AppLogo.xcassets in Resources */,
+				6F70F0D6209B490D00C6459C /* Product Sans Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
